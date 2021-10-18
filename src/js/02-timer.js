@@ -48,16 +48,17 @@ function start() {
     const currentTime = Date.now();
     let delayTime = startTime - currentTime;
     const delayTimeObj = convertMs(delayTime);
+   
     refs.days.textContent = `${pad(delayTimeObj.days)}`;
     refs.hours.textContent = `${pad(delayTimeObj.hours)}`;
     refs.minutes.textContent = `${pad(delayTimeObj.minutes)}`;
     refs.seconds.textContent = `${pad(delayTimeObj.seconds)}`;
-    
-    if(Math.round(delayTime/1000)===1) {
+    if(Math.round(delayTime/1000)===0) {
         console.log('Отсчет окончен')
         clearInterval(thisID);
-
+return
     }
+    
   }, 1000);
   
 }
