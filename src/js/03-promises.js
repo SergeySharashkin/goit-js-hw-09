@@ -1,3 +1,4 @@
+import Notiflix from 'notiflix';
 const refs = {
   form: document.querySelector('form'),
   delay: document.querySelector('input[name = delay]'),
@@ -24,9 +25,11 @@ clearTimeout(setID);
 }
 function onSucsess(result) {
   console.log(result);
+  Notiflix.Notify.success(`${result}`);
 }
 function onError(error) {
   console.log(error);
+  Notiflix.Notify.warning(`${error}`);
 }
 function onCoice(e) {
   refs[e.target.name] = e.target.value;
